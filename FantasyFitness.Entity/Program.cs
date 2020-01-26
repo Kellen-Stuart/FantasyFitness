@@ -11,18 +11,23 @@ namespace FantasyFitness.Entity
             {
                 // Initialize Goal Types
                 // The admin will be able to configure these later
+
+                context.Database.ExecuteSqlCommand("DELETE FROM GoalTypes");
                 var exerciseGoalType = new GoalType
                 {
+                    GoalTypeId = Guid.NewGuid(),
                     Type = "Exercise"
                 };
 
                 var lifestyleGoalType = new GoalType
                 {
+                    GoalTypeId = Guid.NewGuid(),
                     Type = "Lifestyle"
                 };
 
                 var dietGoalType = new GoalType
                 {
+                    GoalTypeId = Guid.NewGuid(),
                     Type = "Diet"
                 };
                 var listOfAllGoalTypes = new List<GoalType>
@@ -36,6 +41,8 @@ namespace FantasyFitness.Entity
                 {
                     context.GoalTypes.Add(goalType);
                 }
+
+                context.SaveChanges();
             }
         }
     }
