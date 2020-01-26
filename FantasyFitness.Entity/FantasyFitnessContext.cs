@@ -13,5 +13,6 @@ namespace FantasyFitness.Entity
         }
 
         public DbSet<Goal> Goals { get; set; }
+        public DbSet<GoalType> GoalTypes { get; set; }
     }
 }
