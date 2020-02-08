@@ -25,9 +25,50 @@ namespace FantasyFitness.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<int>("Actual")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Season")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Target")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("TeamId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Unit")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Week")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("Goals");
+                });
+
+            modelBuilder.Entity("FantasyFitness.Data.Team", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Teams");
                 });
 #pragma warning restore 612, 618
         }

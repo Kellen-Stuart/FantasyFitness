@@ -10,5 +10,6 @@ namespace FantasyFitness.DataAccess
         }
         
         public DbSet<Goal> Goals { get; set; }
+        public DbSet<Team> Teams { get; set; }
     }
 }
