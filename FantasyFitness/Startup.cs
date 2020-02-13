@@ -29,6 +29,17 @@ namespace FantasyFitness
             // Entity Framework Core Code to register the FantasyFitness database
             services.AddDbContext<FantasyFitnessContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("Default")));
+                
+            // Google Chrome Authentication
+            services.AddAuthentication()
+                .AddGoogle(options =>
+                {
+                    IConfiguration googleAuthNSection =
+                        Configuration.GetSection("Authentication:Google");
+                    
+                    options.ClientId = googleAuthNSection["ClientId"];
+                    options.ClientSecret = googleAuthNSection["ClientSecret"];
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
